@@ -48,6 +48,8 @@ You can also request a source-change review or a batch restore. The conversation
 
 An inventory or preview writes nothing. After approval, the agent can create or update `interface.short_description` and `interface.default_prompt` in each target's `agents/openai.yaml`. Unless you also request display-name translation, an existing `interface.display_name` stays unchanged and a missing one stays absent. Other configuration and all managed `SKILL.md` files stay untouched.
 
-Single-file **installation** does not mean backup-free operation. Before writing, the agent records the original bytes (or prior absence) and hashes under `.skill-localizer/v1/` in the authorized root. Keep those backups private. Restore uses the baseline from disk, even in another session; it does not regenerate the original or switch back one language. If the YAML was absent originally, only the newly created YAML is removed.
+Single-file **installation** does not mean backup-free operation. Before writing, the agent records the original bytes (or prior absence) and hashes under `.agent-skill-localizer/v1/` in the authorized root. Keep those backups private. Restore uses the baseline from disk, even in another session; it does not regenerate the original or switch back one language. If the YAML was absent originally, only the newly created YAML is removed.
 
 These are agent instructions, not a transaction engine. If safe parsing, backup, or verification is unavailable, the result is a preview only. Manually edited targets, ambiguous histories, and older incompatible backups are not overwritten. A batch can complete partially; check the completion report.
+
+**Upgrading with existing backups:** Before applying or restoring changes, rename the old hidden backup directory to `.agent-skill-localizer` in the same root, keeping `v1/` and its contents intact. If both directories exist, stop and inspect them; do not merge or overwrite either one.

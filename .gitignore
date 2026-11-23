@@ -1,1 +1,2 @@
-.skill-localizer/
+# Keep current and earlier localizer backup directories private.
+.*-localizer/
