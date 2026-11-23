@@ -2,7 +2,7 @@
 
 [English](README.md) | 简体中文
 
-翻译 Skill 的简介和默认提示语，默认保留熟悉的显示名称，方便按原名搜索。例如，**Release Notes** 默认仍显示为 **Release Notes**；明确要求翻译显示名称时，才可显示为**发布说明**。两种方式都不改英文 ID `release-notes`。安装内容只有一份英文 [SKILL.md](skills/skill-localizer/SKILL.md)，不用安装 Python，也不需要额外翻译服务。
+翻译 Skill 的简介和默认提示语，默认保留熟悉的显示名称，方便按原名搜索。例如，**Release Notes** 默认仍显示为 **Release Notes**；明确要求翻译显示名称时，才可显示为**发布说明**。两种方式都不改英文 ID `release-notes`。安装内容只有一份英文 [SKILL.md](skills/agent-skill-localizer/SKILL.md)，不用安装 Python，也不需要额外翻译服务。
 
 ## 兼容范围
 
@@ -15,16 +15,16 @@
 **方式一：在 Codex 里说一句话（推荐）**
 
 ```text
-用 $skill-installer 从 GitHub 仓库 oiltea94/agent-skill-localizer 安装 skills/skill-localizer 目录里的 Skill。
+用 $skill-installer 从 GitHub 仓库 oiltea94/agent-skill-localizer 安装 skills/agent-skill-localizer 目录里的 Skill。
 ```
 
 **方式二：在目标项目中运行一条命令**（仅安装时需要 `npx`）：
 
 ```sh
-npx skills add oiltea94/agent-skill-localizer --skill skill-localizer --agent codex
+npx skills add oiltea94/agent-skill-localizer --skill agent-skill-localizer --agent codex
 ```
 
-加上 `--global` 可安装到用户级目录。这两种 GitHub 安装方式都需要先发布 Skill 目录。要试用未发布的本地版本，可以在另一个项目中运行 `npx skills add "D:\dev\workspace\agent-skill-localizer\skills\skill-localizer" --agent codex`（换成自己的路径）。手动安装时，只需让项目目录或用户主目录下存在 `.agents/skills/skill-localizer/SKILL.md`。
+加上 `--global` 可安装到用户级目录。这两种 GitHub 安装方式都需要先发布 Skill 目录。要试用未发布的本地版本，可以在另一个项目中运行 `npx skills add "D:\dev\workspace\agent-skill-localizer\skills\agent-skill-localizer" --agent codex`（换成自己的路径）。手动安装时，只需让项目目录或用户主目录下存在 `.agents/skills/agent-skill-localizer/SKILL.md`。
 
 安装到 Claude Code 时，把 `npx` 命令中的参数换成 `--agent claude-code`。它选择的是安装到哪个宿主，不是译文的输出格式。上面的手动安装路径适用于 Codex。
 
@@ -32,7 +32,7 @@ npx skills add oiltea94/agent-skill-localizer --skill skill-localizer --agent co
 
 打开新的 Codex 会话，试着说：
 
-> 用 $skill-localizer 扫描当前项目的 `.agents/skills`，看看哪些 Skill 还没有巴西葡萄牙语的展示文案。只给报告，不写入。
+> 用 $agent-skill-localizer 扫描当前项目的 `.agents/skills`，看看哪些 Skill 还没有巴西葡萄牙语的展示文案。只给报告，不写入。
 
 > 把缺少的简介和默认提示语翻译成巴西葡萄牙语，保留显示名称。先给我看预览。
 
@@ -40,7 +40,7 @@ npx skills add oiltea94/agent-skill-localizer --skill skill-localizer --agent co
 
 > 恢复同一目录里的 `release-notes`，先告诉我会还原或移除哪个文件。
 
-在 Claude Code 中可以先试只读预览：`/skill-localizer 列出当前项目 .claude/skills 中的 Skills，给我看日语显示名称的草稿，不写文件。`
+在 Claude Code 中可以先试只读预览：`/agent-skill-localizer 列出当前项目 .claude/skills 中的 Skills，给我看日语显示名称的草稿，不写文件。`
 
 也可以要求复核源描述变动后的译文，或批量恢复。对话语言不决定目标语言。切换目标语言只替换本次选定的字段，不改英文 ID 或执行指令。
 

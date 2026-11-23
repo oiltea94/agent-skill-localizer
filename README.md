@@ -2,7 +2,7 @@
 
 English | [简体中文](README.zh-CN.md)
 
-Translate descriptions and starter prompts while keeping familiar display names for search. **Release Notes** stays **Release Notes** by default; ask to translate display names too and it can appear as **发布说明**. The skill ID stays `release-notes` either way. The localizer is a single English [SKILL.md](skills/skill-localizer/SKILL.md) with no Python dependency or separate translation service.
+Translate descriptions and starter prompts while keeping familiar display names for search. **Release Notes** stays **Release Notes** by default; ask to translate display names too and it can appear as **发布说明**. The skill ID stays `release-notes` either way. The localizer is a single English [SKILL.md](skills/agent-skill-localizer/SKILL.md) with no Python dependency or separate translation service.
 
 ## Compatibility
 
@@ -15,16 +15,16 @@ Translate descriptions and starter prompts while keeping familiar display names 
 **Ask Codex (recommended):**
 
 ```text
-Use $skill-installer to install skills/skill-localizer from the GitHub repository oiltea94/agent-skill-localizer.
+Use $skill-installer to install skills/agent-skill-localizer from the GitHub repository oiltea94/agent-skill-localizer.
 ```
 
 **Or run one command** from your target project (requires `npx` for installation only):
 
 ```sh
-npx skills add oiltea94/agent-skill-localizer --skill skill-localizer --agent codex
+npx skills add oiltea94/agent-skill-localizer --skill agent-skill-localizer --agent codex
 ```
 
-Add `--global` for a user-level install. Both GitHub methods require the skill directory to be published. To try an unpublished checkout, run `npx skills add /absolute/path/to/agent-skill-localizer/skills/skill-localizer --agent codex` from a separate project. For a manual install, the only file needed is `.agents/skills/skill-localizer/SKILL.md` under your project or home directory.
+Add `--global` for a user-level install. Both GitHub methods require the skill directory to be published. To try an unpublished checkout, run `npx skills add /absolute/path/to/agent-skill-localizer/skills/agent-skill-localizer --agent codex` from a separate project. For a manual install, the only file needed is `.agents/skills/agent-skill-localizer/SKILL.md` under your project or home directory.
 
 For Claude Code, use `--agent claude-code` in the `npx` command instead. This selects the installation host, not the output format. The manual path above is for Codex.
 
@@ -32,7 +32,7 @@ For Claude Code, use `--agent claude-code` in the `npx` command instead. This se
 
 For example, in Codex:
 
-> Use $skill-localizer to scan this project's `.agents/skills` directory. Which skills still need Brazilian Portuguese UI text? Report only.
+> Use $agent-skill-localizer to scan this project's `.agents/skills` directory. Which skills still need Brazilian Portuguese UI text? Report only.
 
 > Translate the missing entries into Brazilian Portuguese, keeping the display names unchanged. Show me the changes first.
 
@@ -40,7 +40,7 @@ To opt in, say “Translate the display names too.” If you do not specify a pr
 
 > Restore `release-notes` in the same directory. Show me which file would be restored or removed.
 
-In Claude Code, try a read-only request: `/skill-localizer List the skills in this project's .claude/skills directory and preview Japanese display names. Do not write any files.`
+In Claude Code, try a read-only request: `/agent-skill-localizer List the skills in this project's .claude/skills directory and preview Japanese display names. Do not write any files.`
 
 You can also request a source-change review or a batch restore. The conversation language and the target language can differ. Switching the target language changes only the selected fields, not the skill ID or instructions.
 

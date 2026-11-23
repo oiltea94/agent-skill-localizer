@@ -1,5 +1,5 @@
 ---
-name: skill-localizer
+name: agent-skill-localizer
 description: Inventory installed Agent Skills and translate descriptions and starter prompts. Keep display names unchanged unless the user asks to translate them. Apply, update, or restore UI translations for clients that read agents/openai.yaml without changing skill IDs or instructions.
 ---
 
