@@ -14,7 +14,9 @@
 
 **方式一：在 Codex 里说一句话（推荐）**
 
-> 用 $skill-installer 从 GitHub 仓库 `oiltea94/skill-localizer` 安装 `skills/skill-localizer` 目录里的 Skill。
+```text
+用 $skill-installer 从 GitHub 仓库 oiltea94/skill-localizer 安装 skills/skill-localizer 目录里的 Skill。
+```
 
 **方式二：在目标项目中运行一条命令**（仅安装时需要 `npx`）：
 

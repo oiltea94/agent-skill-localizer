@@ -14,7 +14,9 @@ Translate skill display names, descriptions, and starter prompts without changin
 
 **Ask Codex (recommended):**
 
-> Use $skill-installer to install `skills/skill-localizer` from the GitHub repository `oiltea94/skill-localizer`.
+```text
+Use $skill-installer to install skills/skill-localizer from the GitHub repository oiltea94/skill-localizer.
+```
 
 **Or run one command** from your target project (requires `npx` for installation only):
 
