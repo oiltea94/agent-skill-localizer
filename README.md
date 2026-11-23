@@ -2,7 +2,7 @@
 
 English | [简体中文](README.zh-CN.md)
 
-Translate skill display names, descriptions, and starter prompts without changing how a skill is invoked. In a client that reads `agents/openai.yaml`, **Release Notes** can appear as **发布说明** while the skill ID stays `release-notes`. The localizer is a single English [SKILL.md](skills/skill-localizer/SKILL.md) with no Python dependency or separate translation service.
+Translate descriptions and starter prompts while keeping familiar display names for search. **Release Notes** stays **Release Notes** by default; ask to translate display names too and it can appear as **发布说明**. The skill ID stays `release-notes` either way. The localizer is a single English [SKILL.md](skills/skill-localizer/SKILL.md) with no Python dependency or separate translation service.
 
 ## Compatibility
 
@@ -34,17 +34,19 @@ For example, in Codex:
 
 > Use $skill-localizer to scan this project's `.agents/skills` directory. Which skills still need Brazilian Portuguese UI text? Report only.
 
-> Translate the missing entries. Show the current and proposed text before writing anything.
+> Translate the missing entries into Brazilian Portuguese, keeping the display names unchanged. Show me the changes first.
+
+To opt in, say “Translate the display names too.” If you do not specify a preference, the preview offers that option once for the batch. Approving the default preview leaves names alone, including any previously translated names.
 
 > Restore `release-notes` in the same directory. Show me which file would be restored or removed.
 
 In Claude Code, try a read-only request: `/skill-localizer List the skills in this project's .claude/skills directory and preview Japanese display names. Do not write any files.`
 
-You can also request a source-change review or a batch restore. The conversation language and the target language can differ. Each skill has one active UI language: switching languages replaces the three display fields, not the skill ID or instructions.
+You can also request a source-change review or a batch restore. The conversation language and the target language can differ. Switching the target language changes only the selected fields, not the skill ID or instructions.
 
 ## What gets written?
 
-An inventory or preview writes nothing. After you approve a specific plan, the host agent can create or update `interface.display_name`, `interface.short_description`, and `interface.default_prompt` in each target's `agents/openai.yaml`. Other configuration and all managed `SKILL.md` files stay untouched.
+An inventory or preview writes nothing. After approval, the agent can create or update `interface.short_description` and `interface.default_prompt` in each target's `agents/openai.yaml`. Unless you also request display-name translation, an existing `interface.display_name` stays unchanged and a missing one stays absent. Other configuration and all managed `SKILL.md` files stay untouched.
 
 Single-file **installation** does not mean backup-free operation. Before writing, the agent records the original bytes (or prior absence) and hashes under `.skill-localizer/v1/` in the authorized root. Keep those backups private. Restore uses the baseline from disk, even in another session; it does not regenerate the original or switch back one language. If the YAML was absent originally, only the newly created YAML is removed.
 
