@@ -15,16 +15,16 @@
 **方式一：在 Codex 里说一句话（推荐）**
 
 ```text
-用 $skill-installer 从 GitHub 仓库 oiltea94/skill-localizer 安装 skills/skill-localizer 目录里的 Skill。
+用 $skill-installer 从 GitHub 仓库 oiltea94/agent-skill-localizer 安装 skills/skill-localizer 目录里的 Skill。
 ```
 
 **方式二：在目标项目中运行一条命令**（仅安装时需要 `npx`）：
 
 ```sh
-npx skills add oiltea94/skill-localizer --skill skill-localizer --agent codex
+npx skills add oiltea94/agent-skill-localizer --skill skill-localizer --agent codex
 ```
 
-加上 `--global` 可安装到用户级目录。这两种 GitHub 安装方式都需要先发布 Skill 目录。要试用未发布的本地版本，可以在另一个项目中运行 `npx skills add "D:\dev\workspace\skill-localizer\skills\skill-localizer" --agent codex`（换成自己的路径）。手动安装时，只需让项目目录或用户主目录下存在 `.agents/skills/skill-localizer/SKILL.md`。
+加上 `--global` 可安装到用户级目录。这两种 GitHub 安装方式都需要先发布 Skill 目录。要试用未发布的本地版本，可以在另一个项目中运行 `npx skills add "D:\dev\workspace\agent-skill-localizer\skills\skill-localizer" --agent codex`（换成自己的路径）。手动安装时，只需让项目目录或用户主目录下存在 `.agents/skills/skill-localizer/SKILL.md`。
 
 安装到 Claude Code 时，把 `npx` 命令中的参数换成 `--agent claude-code`。它选择的是安装到哪个宿主，不是译文的输出格式。上面的手动安装路径适用于 Codex。
 

@@ -15,16 +15,16 @@ Translate descriptions and starter prompts while keeping familiar display names 
 **Ask Codex (recommended):**
 
 ```text
-Use $skill-installer to install skills/skill-localizer from the GitHub repository oiltea94/skill-localizer.
+Use $skill-installer to install skills/skill-localizer from the GitHub repository oiltea94/agent-skill-localizer.
 ```
 
 **Or run one command** from your target project (requires `npx` for installation only):
 
 ```sh
-npx skills add oiltea94/skill-localizer --skill skill-localizer --agent codex
+npx skills add oiltea94/agent-skill-localizer --skill skill-localizer --agent codex
 ```
 
-Add `--global` for a user-level install. Both GitHub methods require the skill directory to be published. To try an unpublished checkout, run `npx skills add /absolute/path/to/skills/skill-localizer --agent codex` from a separate project. For a manual install, the only file needed is `.agents/skills/skill-localizer/SKILL.md` under your project or home directory.
+Add `--global` for a user-level install. Both GitHub methods require the skill directory to be published. To try an unpublished checkout, run `npx skills add /absolute/path/to/agent-skill-localizer/skills/skill-localizer --agent codex` from a separate project. For a manual install, the only file needed is `.agents/skills/skill-localizer/SKILL.md` under your project or home directory.
 
 For Claude Code, use `--agent claude-code` in the `npx` command instead. This selects the installation host, not the output format. The manual path above is for Codex.
 
